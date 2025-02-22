@@ -1,0 +1,43 @@
+Account	String	AccountID	Yes	The identifying (classic) address of this account.
+
+AccountTxnID	String	Hash256	No	The identifying hash of the transaction most recently sent by this account. This field must be enabled to use the AccountTxnID transaction field. To enable it, send an AccountSet transaction with the asfAccountTxnID flag enabled.
+
+AMMID	String	Hash256	No	(Added by the AMM amendment) The ledger entry ID of the corresponding AMM ledger entry. Set during account creation; cannot be modified. If present, indicates that this is a special AMM AccountRoot; always omitted on non-AMM accounts.
+
+Balance	String	Amount	No	The account's current XRP balance in drops, represented as a string.
+XRP is specified as a string containing an integer number of "drops" of XRP, where 1 million drops equals 1 XRP. 
+
+
+BurnedNFTokens	Number	UInt32	No	How many total of this account's issued non-fungible tokens have been burned. This number is always equal or less than MintedNFTokens.
+
+Domain	String	Blob	No	A domain associated with this account. In JSON, this is the hexadecimal for the ASCII representation of the domain. Cannot be more than 256 bytes in length.
+
+EmailHash	String	Hash128	No	The md5 hash of an email address. Clients can use this to look up an avatar through services such as Gravatar.
+
+FirstNFTokenSequence	Number	UInt32	No	The account's Sequence Number at the time it minted its first non-fungible-token. (Added by the fixNFTokenRemint amendment)
+
+LedgerEntryType	String	UInt16	Yes	The value 0x0061, mapped to the string AccountRoot, indicates that this is an AccountRoot object.
+
+MessageKey	String	Blob	No	A public key that may be used to send encrypted messages to this account. In JSON, uses hexadecimal. Must be exactly 33 bytes, with the first byte indicating the key type: 0x02 or 0x03 for secp256k1 keys, 0xED for Ed25519 keys.
+
+MintedNFTokens	Number	UInt32	No	How many total non-fungible tokens have been minted by and on behalf of this account. (Added by the NonFungibleTokensV1_1 amendment)
+
+
+
+NFTokenMinter	String	AccountID	No	Another account that can mint non-fungible tokens on behalf of this account. (Added by the NonFungibleTokensV1_1 amendment)
+
+OwnerCount	Number	UInt32	Yes	The number of objects this account owns in the ledger, which contributes to its owner reserve.
+
+PreviousTxnID	String	Hash256	Yes	The identifying hash of the transaction that most recently modified this object.
+
+PreviousTxnLgrSeq	Number	UInt32	Yes	The index of the ledger that contains the transaction that most recently modified this object.
+
+RegularKey	String	AccountID	No	The address of a key pair that can be used to sign transactions for this account instead of the master key. Use a SetRegularKey transaction to change this value.
+
+Sequence	Number	UInt32	Yes	The sequence number of the next valid transaction for this account.
+
+TicketCount	Number	UInt32	No	How many Tickets this account owns in the ledger. This is updated automatically to ensure that the account stays within the hard limit of 250 Tickets at a time. This field is omitted if the account has zero Tickets. (Added by the TicketBatch amendment.)
+
+TickSize	Number	UInt8	No	How many significant digits to use for exchange rates of Offers involving currencies issued by this address. Valid values are 3 to 15, inclusive. (Added by the TickSize amendment.)
+
+TransferRate	Number	UInt32	No	A transfer fee to charge other users for sending currency issued by this account to each other.

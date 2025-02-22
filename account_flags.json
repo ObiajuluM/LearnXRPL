@@ -1,0 +1,16 @@
+{
+    "allowTrustLineClawback": false,
+    "defaultRipple": false,
+    "depositAuth": false,
+    "disableMasterKey": false,
+    "disallowIncomingCheck": false,
+    "disallowIncomingNFTokenOffer": false,
+    "disallowIncomingPayChan": false,
+    "disallowIncomingTrustline": false,
+    "disallowIncomingXRP": false,
+    "globalFreeze": false,
+    "noFreeze": false,
+    "passwordSpent": false,
+    "requireAuthorization": false,
+    "requireDestinationTag": false
+}
